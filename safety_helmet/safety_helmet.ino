@@ -1,6 +1,6 @@
 #define pResistor A0
-#define gasSensor A1
-#define temperatureSensor A2
+#define gasSensor A2
+#define temperatureSensor A5
 #define buzzer 7
 #define hLight 8
 #define redLed 9
@@ -23,11 +23,12 @@ void setup()
 }
 
 float temperatureValue(){
-  return (analogRead(A2)*(5.0/1024.0))*100;
+  return ((analogRead(A2)*(5.0/1024.0))*100)-20;
 }
 
 void display(int gas,int light,float temp){
   Serial.print(" Gas: ");
+  
   Serial.print(gas);
   Serial.print(" Light: ");
   Serial.print(light);
